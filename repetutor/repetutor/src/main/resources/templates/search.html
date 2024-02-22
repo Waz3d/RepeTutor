@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/search.css}"/>
+    <script th:src="@{/javascript/script.js}"></script>
+</head>
+<body>
+    <div th:insert="~{general.html :: header}"></div>
+    <h1>Search your tutor</h1>
+    <form method="post">
+        <label>City: <input name="city" type="text"></label>
+        <label>Subject: <input name="subject" type="text"></label>
+        <input type="submit" value="Search">
+    </form>
+    <!--/*@thymesVar id="tutorList" type=""*/-->
+    <!--/*@thymesVar id="tutor" type="it.dsmt.repetutor.dto.TutorDTO"*/-->
+    <dl th:each="tutor: ${tutorList}" th:onclick="|viewTutor('${tutor.id}')|" class="tutorElement">
+        <!--/*@thymesVar id="tutor" type="it.dsmt.repetutor.dto.TutorDTO"*/-->
+        <dt th:text="${tutor.getName()} + ' ' + ${tutor.getSurname()}" class="name"/>
+        <img th:if="${tutor.getReceivedComments().size()}!=0" th:src="@{/images/star.svg}" class="icon">
+        <dd th:if="${tutor.getReceivedComments().size()}!=0" th:text="${tutor.getAverageEvaluation().toString()} + '/5' + ' ('+${tutor.getReceivedComments().size()} +')'"/>
+        <hr>
+        <img th:src="@{/images/subjects.svg}" class="icon">
+        <dd th:text="${tutor.getSubjects()}" class="subjects"/>
+        <img th:src="@{/images/location.svg}" class="icon">
+        <dd th:text="${tutor.getLocation()}" class="location"/>
+        <dd th:text="${tutor.getDescription()}" class="description"/>
+        <dd th:text="'Price: '+ ${tutor.getPrice().toString()} + ' ' + ${tutor.getCurrency()} + '/hour'" class="price"}/>
+    </dl>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify profile</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/forms.css}"/>
+    <script th:src="@{/javascript/signin.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
+</head>
+<body>
+    <div th:insert="~{general.html :: header}"></div>
+    <h1>Modify profile</h1>
+    <form method="post" id="form">
+        <!--/*@thymesVar id="tutor" type="it.dsmt.repetutor.dto.TutorDTO"*/-->
+        <div>Username: <br>
+            <input type="text" th:value="${tutor.getUsername()}" readonly></div>
+        <div>New password: <br><input id="psw" type="password" onchange="hashPasswordModify()" placeholder="Insert password"></div>
+        <input type="hidden" name="passwordHash" id="passwordHash" th:value="${tutor.getPswHash()}">
+        <input type="hidden" th:value="${tutor.getSalt()}" id="salt">
+        <input type="hidden" name="check" id="check">
+        <div>Name: <br><input type="text" name="name" th:value="${tutor.getName()}"></div>
+        <div>Surname: <br><input type="text" name="surname" th:value="${tutor.getSurname()}"></div>
+        <div>Email: <br><input type="email" name="email" th:value="${tutor.getEmail()}"></div>
+        <input type="hidden" name="photo" value="photo">
+        <input type="submit" value="Modify">
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage.css}"/>
+</head>
+<body>
+    <img th:src="@{/images/immagine.png}" alt="image" id="imageHomepage"/>
+    <div id="divHome">
+        <h1>Repetutor</h1>
+        <h2>Find a tutor who can help you in your studies!</h2>
+        <!--/*@thymesVar id="hash" type=""*/-->
+        <button onclick="location.href='/login'">Login</button>
+        <button id="signin" onclick="location.href='/signin'">Sign-in</button>
+    </div>
+</body>
+</html>

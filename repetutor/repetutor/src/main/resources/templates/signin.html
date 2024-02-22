@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signin</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/forms.css}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
+    <script th:src="@{/javascript/signin.js}"></script>
+</head>
+<body>
+    <h1>Sign-in</h1>
+    <p>Sign-in as:</p>
+    <button id="studentSignIn" onclick="studentSignIn()">Student</button>
+    <button id="tutorSignIn" onclick="tutorSignIn()">Tutor</button>
+    <form method="post" id="form" hidden="hidden">
+        <div>Username: <br><input type="text" name="username" placeholder="Insert username"></div>
+        <div>Password: <br><input id="psw" type="password" onchange="hashPassword()" placeholder="Insert password" ></div>
+        <input type="hidden" name="passwordHash" id="passwordHash">
+        <!--/*@thymesVar id="salt" type=""*/-->
+        <input type="hidden" th:value="${salt}" id="salt" name="salt">
+        <div>Name: <br><input type="text" name="name" placeholder="Insert name"></div>
+        <div>Surname: <br><input type="text" name="surname" placeholder="Insert surname"></div>
+        <div>Email: <br><input type="email" name="email" placeholder="Insert email"></div>
+        <input type="hidden" name="photo" value="photo">
+        <div class="tutorField">Subjects (separated by comma): <br><input type="text" name="subjects" placeholder="Insert subjects"></div>
+        <div class="tutorField">Price per hour: <br><input type="number" name="price" placeholder="Insert price"></div>
+        <div class="tutorField">Currency:
+            <select name="currency" id="currency">
+                <option name="euro" value="€">€</option>
+                <option name="dollar" value="$">$</option>
+                <option name="pound" value="£">£</option>
+            </select>
+        </div>
+        <div class="tutorField">Location: <br><input type="text" name="location" placeholder="Insert location"></div>
+        <div class="tutorField">Description: <br><input id="description" type="text" name="description" placeholder="Insert description" oninput="count()" maxlength="255"></div>
+        <p id="count" style="font-size:8pt" class="tutorField">0/255</p>
+        <input type="hidden" name="role" id="role">
+        <input type="submit" value="Sign-in">
+    </form>
+</body>
+</html>

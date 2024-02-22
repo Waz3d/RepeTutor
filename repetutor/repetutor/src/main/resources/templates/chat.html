@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat page</title>
+    <script th:src="@{/javascript/chat.js}"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/chat.css}"/>
+</head>
+<body>
+    <!--/*@thymesVar id="role" type=""*/-->
+    <div th:insert="~{general.html :: header}"></div>
+    <p th:text="${role}" hidden="hidden" id="role"/>
+    <!--/*@thymesVar id="id" type=""*/-->
+    <p th:text="${id}" hidden="hidden" id="id"/>
+    <!--/*@thymesVar id="fullname" type=""*/-->
+    <p th:text="${fullname}" hidden="hidden" id="fullname"/>
+    <!--/*@thymesVar id="idDest" type=""*/-->
+    <p th:text="${idDest}" hidden="hidden" id="idDest"/>
+    <!--/*@thymesVar id="fullnameDest" type=""*/-->
+    <p th:text="${fullnameDest}" hidden="hidden" id="fullnameDest"/>
+    <div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card chat-app" id="card">
+                    <div id="plist" class="people-list">
+                        <ul class="list-unstyled chat-list mt-2 mb-0" id="chatList">
+                        </ul>
+                    </div>
+                    <div class="chat showing">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/forms.css}"/>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="post">
+        <label> Username: <br><input type="text" name="username" placeholder="Insert username"></label><br>
+        <label> Password: <br><input type="password" name="password" placeholder="Insert password"></label><br>
+        <label> Role: <br>
+        <select name="role">
+            <option name="tutor" value="tutor">Tutor</option>
+            <option name="student" value="student">Student</option>
+        </select></label><br>
+        <input type="submit" value="Login" id="login">
+    </form>
+    <!--/*@thymesVar id="error" type=""*/-->
+    <p id="error" th:if="${error} == true">Credentials not valid</p>
+</body>
+</html>

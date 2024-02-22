@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutor</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/viewTutor.css}"/>
+    <script th:src="@{/javascript/script.js}"></script>
+</head>
+<body>
+    <div th:insert="~{general.html :: header}"></div>
+    <!--/*@thymesVar id="tutorData" type="it.dsmt.repetutor.dto.TutorDTO"*/-->
+    <h1 th:text="${tutorData.getName()} + ' ' + ${tutorData.getSurname()}"/>
+    <img th:if="${tutorData.getReceivedComments().size()}!=0" th:src="@{/images/star.svg}" class="icon">
+    <dd th:if="${tutorData.getReceivedComments().size()}!=0" th:text="${tutorData.getAverageEvaluation().toString()} + '/5' + ' ('+${tutorData.getReceivedComments().size()} +')'"/>
+    <hr id="hrName">
+    <img th:src="@{/images/subjects.svg}" class="icon">
+    <dd th:text="${tutorData.getSubjects()}" class="subjects"/>
+    <img th:src="@{/images/location.svg}" class="icon">
+    <dd th:text="${tutorData.getLocation()}" class="location"/>
+    <dd th:text="${tutorData.getDescription()}" class="description"/>
+    <dd th:text="'Price: '+ ${tutorData.getPrice().toString()} + ' ' + ${tutorData.getCurrency()} + '/hour'" class="price"}/>
+
+    <button th:onclick=|openChat('${tutorData.getId()}')|>Chat</button>
+
+    <h1>Comments</h1>
+    <dl th:each="comment: ${tutorData.getReceivedComments()}" class="commentElement">
+        <!--/*@thymesVar id="comment" type="it.dsmt.repetutor.dto.CommentDTO"*/-->
+        <dt th:text="${comment.getStudentName()}" class="name"/>
+        <img th:each="i : ${#numbers.sequence( 1, comment.getEvaluation())}" th:src="@{/images/star.svg}" class="icon">
+        <hr>
+        <img th:src="@{/images/subjects.svg}" class="icon">
+        <dd th:text="${comment.getSubject()}" class="subjects"/>
+        <dd th:text="${comment.getComment()}" class="comment"></dd>
+    </dl>
+</body>
+</html>

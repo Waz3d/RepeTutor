@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add lesson</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/forms.css}"/>
+</head>
+<body>
+    <h1>Add a new lesson</h1>
+    <form method="post" id="form">
+        <div>Date: <br><input type="date" name="date" placeholder="Insert date"></div>
+        <!--/*@thymesVar id="idStudent" type=""*/-->
+        <input id="student" name="student" type="hidden" th:value="${idStudent}"></div>
+        <div>Subject: <br>
+            <select name="subject">
+                <!--/*@thymesVar id="subjects" type=""*/-->
+                <option th:each="subject: ${subjects}" th:value="${subject}" th:text="${subject}"></option>
+            </select>
+        <div>Time (hh:mm): <br><input type="text" id="start" name="start"></div>
+        <div>Duration (n° of hours): <br><input type="number" id="duration" name="duration"></div>
+        <!--/*@thymesVar id="tutor" type=""*/-->
+        <input type="hidden" name="tutor" th:value="${tutor}">
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

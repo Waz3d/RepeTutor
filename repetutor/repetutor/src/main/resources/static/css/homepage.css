@@ -1,0 +1,76 @@
+h1{
+    text-align: left;
+    margin-top: 200px;
+    font-size: 50pt;
+}
+
+body{
+    margin-left: 200px;
+    background-color: rgb(222, 232, 254);
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    text-align: left;
+    font-weight: normal;
+}
+
+#logo{
+    width: 20%;
+    height: 20%;
+    margin-top: 100px;
+}
+#divHome{
+    float: left;
+}
+#imageHomepage{
+    float:right;
+    margin-right: 5%;
+    width: 50%;
+    height: 50%;
+}
+
+button{
+    border-radius: 5pt;
+    font-size: 12pt;
+    background-color: rgb(7, 64, 63);
+    color: white;
+    border-style: none;
+    width: 150px;
+    height: 30px;
+}
+
+#signin{
+    margin-left: 50px;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#login{
+    border-radius: 10pt;
+    font-size: 12pt;
+    background-color: rgb(7, 64, 63);
+    color: white;
+    border-style: none;
+    width: 150px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+#login.hover{
+    opacity: 0.8;
+}

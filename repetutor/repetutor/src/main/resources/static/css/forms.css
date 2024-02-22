@@ -1,0 +1,92 @@
+h1{
+    text-align: left;
+    margin-top: 70px;
+    size: 50pt;
+}
+
+body {
+    margin-left: 200px;
+    background-color: rgb(222, 232, 254);
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2{
+    text-align: left;
+    font-weight: normal;
+}
+
+#logo{
+    width: 100px;
+    height: 100px;
+}
+
+button, input[type=submit]{
+    border-radius: 5pt;
+    font-size: 12pt;
+    background-color: rgb(7, 64, 63);
+    color: white;
+    border-style: none;
+    width: 150px;
+    height: 30px;
+}
+
+input[type=submit]{
+    margin-top: 10px;
+}
+
+#signin, #tutorSignIn{
+    margin-left: 50px;
+}
+
+option{
+    font-size: 12pt;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=email]{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button:hover, #login:hover {
+    opacity: 0.8;
+}
+
+#currency{
+    margin-bottom: 8px;
+}
+
+#error{
+    color: darkred;
+    font-size: 10pt;
+}
+
+#navbar {
+    background-color: rgb(7, 64, 63);
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+    left: 0;
+    width: 100%; /* Full width */
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+    padding-left: 50px;
+}
+
+/* Style the navbar links */
+#navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-color: rgb(7, 64, 63);
+}
+
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}

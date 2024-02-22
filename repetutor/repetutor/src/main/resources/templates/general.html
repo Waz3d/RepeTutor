@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8" />
+    <script th:src="@{/javascript/script.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/search.css}"/>
+</head>
+<body>
+    <div th:fragment="header" id="navbar">
+        <!--/*@thymesVar id="role" type=""*/-->
+        <a th:if="${role}=='student'" onclick="location.href='/search'">Search a Tutor</a>
+        <a onclick="location.href='/calendar'">Schedule of lessons</a>
+        <a th:if="${role}=='student'" onclick="location.href='/modifyStudent'">Modify profile</a>
+        <a th:if="${role}=='tutor'" onclick="location.href='/tutorProfile'">My profile</a>
+        <a onclick="location.href='/chat'">Chat</a>
+        <a onclick="location.href='/logout'">Logout</a>
+    </div>
+</body>
+</html>

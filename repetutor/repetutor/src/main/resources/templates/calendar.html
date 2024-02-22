@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/calendar.css}"/>
+    <script th:src="@{/javascript/script.js}"></script>
+</head>
+<body>
+    <div th:insert="~{general.html :: header}"></div>
+    <h1>Future lessons</h1>
+    <!--/*@thymesVar id="role" type=""*/-->
+    <!--<button th:if="${role}=='tutor'" onclick="location.href='/addLesson'"> Add new </button>-->
+    <!--/*@thymesVar id="listFuture" type=""*/-->
+    <!--/*@thymesVar id="lesson" type="it.dsmt.repetutor.dto.LessonViewDTO"*/-->
+    <dl th:each="lesson: ${listFuture}" class="lessonElement">
+        <!--/*@thymesVar id="lesson" type="it.dsmt.repetutor.dto.LessonViewDTO"*/-->
+        <dt th:if="${role}=='student'" th:text="${lesson.getTutorName()} + ' ' + ${lesson.getTutorSurname()}" class="name"/>
+        <dt th:if="${role}=='tutor'" th:text="${lesson.getStudentName()} + ' ' + ${lesson.getStudentSurname()}" class="name"/>
+        <hr>
+        <img th:src="@{/images/calendar.png}" class="icon">
+        <dd th:text="'When: ' + ${lesson.getDate().toString()} + ' at ' + ${lesson.getStart()}" class="text"/>
+        <br><br>
+        <img th:src="@{/images/hour.png}" class="icon">
+        <dd th:text="'Duration: '+ ${lesson.getDuration()}" class="text"/>
+        <br><br>
+        <img th:src="@{/images/subjects.svg}" class="icon">
+        <dd th:text="'Subject: '+ ${lesson.getSubject()}" class="text"/>
+        <br><br>
+        <img th:src="@{/images/email.png}" class="icon">
+        <dd th:if="${role}=='student'" th:text="'Email address: '+ ${lesson.getTutorEmail()}" class="text"/>
+        <dd th:if="${role}=='tutor'" th:text="'Email address: '+ ${lesson.getStudentEmail()}" class="text"/>
+        <br><br>
+    </dl>
+
+    <hr>
+    <!--/*@thymesVar id="listPast" type=""*/-->
+    <!--/*@thymesVar id="lessonPast" type="it.dsmt.repetutor.dto.LessonViewDTO"*/-->
+    <h1 id="pastH1">Past lessons</h1>
+    <dl th:each="lessonPast: ${listPast}" class="lessonElement">
+        <!--/*@thymesVar id="lessonPast" type="it.dsmt.repetutor.dto.LessonViewDTO"*/-->
+        <dt th:if="${role}=='student'" th:text="${lessonPast.getTutorName()} + ' ' + ${lessonPast.getTutorSurname()}" class="name"/>
+        <dt th:if="${role}=='tutor'" th:text="${lessonPast.getStudentName()} + ' ' + ${lessonPast.getStudentSurname()}" class="name"/>
+        <hr>
+        <img th:src="@{/images/calendar.png}" class="icon">
+        <dd th:text="'When: ' + ${lessonPast.getDate().toString()} + ' at ' + ${lessonPast.getStart()}" class="text"/>
+        <br><br>
+        <img th:src="@{/images/hour.png}" class="icon">
+        <dd th:text="'Duration: '+ ${lessonPast.getDuration()}" class="text"/>
+        <br><br>
+        <img th:src="@{/images/subjects.svg}" class="icon">
+        <dd th:text="'Subject: '+ ${lessonPast.getSubject()}" class="text"/>
+        <br><br>
+        <img th:src="@{/images/email.png}" class="icon">
+        <dd th:if="${role}=='student'" th:text="'Email address: '+ ${lessonPast.getTutorEmail()}" class="text"/>
+        <dd th:if="${role}=='tutor'" th:text="'Email address: '+ ${lessonPast.getStudentEmail()}" class="text"/>
+        <br><br>
+        <button th:if="${role}=='student'" th:onclick="|addComment('${lessonPast.getTutor()}')|" id="addComment">Add comment</button>
+    </dl>
+</body>
+</html>
