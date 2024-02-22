@@ -1,0 +1,6 @@
+-sname chat_erlang
+
+-setcookie chat_erlang_cookie
+
++K true
++A30

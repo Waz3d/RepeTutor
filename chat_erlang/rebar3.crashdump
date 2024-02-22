@@ -1,0 +1,20 @@
+Error: {badmatch,{error,{load_failed,"Failed to load NIF library c:/Users/sangu/IdeaProjects/chat_erlang/_build/default/plugins/rebar3_run/priv/rebar3_run: 'Impossibile trovare il modulo specificato.'"}}}
+[{rebar3_run,init,0,
+             [{file,"c:/Users/sangu/IdeaProjects/chat_erlang/_build/default/plugins/rebar3_run/src/rebar3_run.erl"},
+              {line,53}]},
+ {rebar3_run,do,1,
+             [{file,"c:/Users/sangu/IdeaProjects/chat_erlang/_build/default/plugins/rebar3_run/src/rebar3_run.erl"},
+              {line,34}]},
+ {rebar_core,do,2,
+             [{file,"/home/runner/work/rebar3/rebar3/apps/rebar/src/rebar_core.erl"},
+              {line,155}]},
+ {rebar3,run_aux,2,
+         [{file,"/home/runner/work/rebar3/rebar3/apps/rebar/src/rebar3.erl"},
+          {line,193}]},
+ {rebar3,main,1,
+         [{file,"/home/runner/work/rebar3/rebar3/apps/rebar/src/rebar3.erl"},
+          {line,66}]},
+ {escript,run,2,[{file,"escript.erl"},{line,750}]},
+ {escript,start,1,[{file,"escript.erl"},{line,277}]},
+ {init,start_em,1,[{file,"init.erl"},{line,1220}]}]
+
