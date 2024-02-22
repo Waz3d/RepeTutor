@@ -1,0 +1,11 @@
+{application,chat_erlang,
+             [{description,"An OTP application"},
+              {vsn,"0.1.0"},
+              {registered,[]},
+              {mod,{chat_erlang_app,[]}},
+              {applications,[kernel,stdlib,cowboy,mochijson2,mnesia]},
+              {env,[]},
+              {modules,[chat_erlang_app,chat_erlang_sup,mnesia_handler,
+                        web_socket_handler]},
+              {licenses,["Apache-2.0"]},
+              {links,[]}]}.
